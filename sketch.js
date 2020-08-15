@@ -35,7 +35,7 @@ rectMode(CENTER);
   Stand= new ground(555,550,230,15);
   Stand2=new ground(570,260,230,15);
 
-  Paperball=new polygon( 100, 450 , 20 );
+  Stone=new polygon( 100, 450 , 20 );
   
   for(a=463;a<=643;a+=30){
    level1.push(new box(a,524))
@@ -52,23 +52,23 @@ rectMode(CENTER);
   Box1=new box(553,460);
 
   for(d=478;d<=683;d+=30){
-    level4.push(new box(d,100))
+    level4.push(new box(d,220))
   }
 
   
   for(e=508;e<=653;e+=30){
-    level5.push(new box(e,90))
+    level5.push(new box(e,180))
   }
 
   
   for(f=538;f<=623;f+=30){
-    level6.push(new box(f,80))
+    level6.push(new box(f,160))
   }
 
-  Box2=new box(568,50);
+  Box2=new box(568,120);
  
 	
-	Hanger=new Shot(Paperball.body,{x:200,y:100});
+	Hanger=new Shot(Stone.body,{x:200,y:100});
 
 
 }
@@ -81,7 +81,7 @@ function draw() {
   
   Stand.display();
   Stand2.display();
-  Paperball.display();
+  Stone.display();
 
   for(k=0;k<level1.length;k++){
     level1[k].display();
@@ -119,17 +119,17 @@ function draw() {
    //mouseReleased();
 }
 
-//function keyPressed(){
-	//if(keyCode === 32){
-		//Hanger.attach(Paperball)
-	//}
-//}
+function keyPressed(){
+	if(keyCode === 32){
+		Hanger.attach(Stone.body)
+	}
+}
 
 function mouseReleased(){
    Hanger.fly();
 }
 
 function mouseDragged(){
-    Matter.Body.setPosition(Paperball.body,{x:mouseX, y:mouseY});
+    Matter.Body.setPosition(Stone.body,{x:mouseX, y:mouseY});
 }
 
